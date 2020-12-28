@@ -1,0 +1,46 @@
+
+<nav class="navbar navbar-expand-md" style="background-color:#cee0da; font-weight: bold; font-size: 17px;" >
+  <div class="collapse navbar-collapse" id="navbarCollapse" style="color: black;"> 
+  <a class="navbar-brand"  style="color: black; "  href="/">Anasayfa</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+    <ul  class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" style="color: black;"  href="/about">Hakkımda</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link"  style="color: black;"  href="/services">Hizmetler</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link"  style="color: black;"  href="/article">Yazılar</a>
+      </li>
+       <li class="nav-item active">
+        <a class="nav-link"  style="color: black;"  href="/contact">İletişim</a>
+      </li>
+      {% if session['logged_in'] %}
+      <li class="nav-item active">
+        <a class="nav-link"  style="color: rgb(245, 12, 12);"  href="/dashboard">Kontrol Paneli</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link"  style="color: rgb(245, 12, 12);"  href="/logout">Çıkış Yap</a>
+      </li>
+      {% else %}
+      {% endif %}
+      
+    </ul>
+    
+    <ul class="navbar-nav ml-auto" style="font-size: 20px;">
+     <li class="nav-item active">
+      <a style="color: black;" href="tel:05543354832"><i class="fas fa-phone-volume">05543354832</i></a>
+      <i class="far fa-envelope">mgunes@gmail.com</i>
+       <a href="https://www.facebook.com" target="_blanlk"><i class="fab fa-facebook"></i></a>
+       <a href="https://www.instagram.com" target="_blanlk"><i style="color: rgb(187, 36, 36);" class="fab fa-instagram"></i></a>
+       <a href="https://www.twitter.com"target="_blanlk"><i class="fab fa-twitter"></i></a>
+
+    </li>
+
+  </ul>
+  </div>
+</nav>

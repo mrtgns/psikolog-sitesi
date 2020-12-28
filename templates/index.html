@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h4 style="font-family: cursive;">Uzman Klinik Psikolog</h4>
+<h4> <em> Murat GÜNEŞ</em></h4> 
+<div class="personel-info" >
+    
+    <img src="{{ url_for('static', filename = 'images/mrtt.jpg') }}" >
+    
+    <p class="text-center container"> İnsan olmak uzun bir yolculuktur… İnsan olma yolunda hepimiz varlığımızı sürdürebilmek, fizyolojik ve psikolojik varlığımızı sağlıklı temellendirebilmek için bir yoldaşa ihtiyaç duyarız. Bize bu yolda eşlik eden ilk ve en temel varlık annemizdir. Aile bireye bir varoluş ortamı tesis eder ancak her ailenin kendi kaderi ve yaşam şartları vardır. Doğduğunuz ailenin kaderine de doğmuş olursunuz bir bakıma…
+
+      Birey kendini öncelikle bir başkasının gözünde görerek var olur. İnsan, beyninin % 25’i oluşmuş olarak doğar ve yaşamın ilk yıllarında hızlı bir yapılanma sürecine girer. Yaşadıklarımız, her türlü kişisel etkileşimlerimiz beynimizde duygulanımsal bir yapılanma oluşturur ve psikolojik varlığımız bu şekilde yapılanır. Bilinçdışı dünyamız da bu yapılanma içerisinde köklerini salar.
+      
+      Tabi ki her bireyin kendi nüvesi ve özü vardır. Bu öz bizleri hep kendini görmemiz ve ortaya çıkarmamız yönünde itekler. Bir yandan da içinde olduğumuz ortama adapte olmak durumundayızdır. Küçük bir çocuk olarak bize dayatılanları yani, yaşam deneyimlerimizi, ebeveynlerimizin beklentilerini, sahip oldukları koşulları, bizimle ilişki kurma şekillerini bilinçli ve bilinçdışı olarak alıp kaydederiz. Bu kayıtlar bizlerin karakter yapılarını oluşturur.
+      
+      Bir çoğumuz çocukluktan başlayarak yetişkinliğin de farklı evrelerinde içinde bulunduğumuz çevre ve kişiler ile sorunlar yaşayabiliriz. Geçmişteki baş etme yöntemlerimiz yeterince ve uygun bir şekilde fayda sağlamaz. Hatta bazı durumlarla nasıl baş edeceğimize dair fikrimiz bile olmayabilir. Duygularımızı anlamakta, söze dökmekte zorluk yaşayabiliriz.
+      
+      Kişi yine güvenilir bir yoldaş ve kendisine eşlik edecek birine ihtiyaç duyar. Psikoterapi bireyin kendini tanıması, beklentilerini ortaya koyması, içinde bulunduğu gerçekliği değerlendirmesi, duygusal dünyasını düzenlemesi ve kendi yolunda yürümesini sağlamak üzere bir yol açar. Psikoterapist bu yolda bireye eşlik eder…
+      
+      Hepimizin hayatta ihtiyacı olan sağlıklı ve tarafsız bir eşliğe sahip olabilmektir. Bu yolda size ve duygularınıza tarafsızca eşlik etmek üzere buradayız….   
+    </p>
+</div>
+    
+  
+   <div class="therapy">
+    <div class="terapi">
+  <img src="{{ url_for('static', filename = 'images/psikoterapi.jpg') }}" >
+      <h4 style="text-align: center;">BİREYSEL TERAPİ</h4>
+      <span><P>Bireysel terapi, davranış değişikliğini kolaylaştırarak yaşam kalitesini artırmayı hedefleyen, terapist ve danışan arasında güven ilişkisiyle oluşan terapotik süreçtir.</P>
+      </span>
+      <a href="" class="btn btn-warning" style="text-align: center;">DAHA FAZLA</a>
+      </div>
+      <div class="terapi">
+        <img src="{{ url_for('static', filename = 'images/online-terapi.jpg') }}" >
+        <h4 style="text-align: center;">ONLİNE TERAPİ</h4>
+        <span><P>Merhabalar,
+
+          Karantina koşulları gereği tüm dünyada olduğu gibi biz de çalışmalarımızı artık online da gerçekleştiriyoruz. </P>
+        </span>
+        <a href="" class="btn btn-warning" style="text-align: center;">DAHA FAZLA</a>
+    
+       </div>
+
+   </div>
+   
+  
+<div>
+  <table  class="table" >
+   
+    <thead>
+      <tr>
+        <th>Çalışma Saatleri</th> 
+      </tr>
+    </thead>
+     <tbody>
+      <td>Pazartesi</td>
+      <td>10:00-18:00</td> 
+    </tr>
+    <tr>
+      <td>Salı</td>
+      <td>10:00-18:00</td> 
+    </tr>
+    <tr>
+      <td>Çarşamba</td>
+      <td>10:00-18:00</td> 
+    </tr>
+    <tr>
+      <td>Perşembe</td>
+      <td>10:00-18:00</td> 
+    </tr>
+    <tr>
+      <td>Cuma</td>
+      <td>10:00-18:00</td> 
+    </tr>
+    <tr>
+      <td>Cumartesi</td>
+      <td>10:00-18:00</td> 
+    </tr>
+    <tr>
+      <td>Pazar</td>
+      <td>kapalı</td> 
+    </tr>
+    
+    
+  </tbody>
+</table>
+
+<div class="card" >
+  <div class="card-body">
+      <label class="__third_card_title __tct_third"><h4>Ücretsiz Danışın</h4></label>
+      <label class="__fourth_card_description text-center pt-2 pb-2" style="display: flex;">
+          Merak ettiğiniz tüm sorularınızı tek bir yerden bize iletin size geri dönüş yapalım.
+      </label>
+      <form action="https://formspree.io/f/xoqpkzea" method="post" id="contact_form">
+          <input type="text" class="form-control __first_input" name="name_surname" placeholder="Adınız, Soyadınız">
+          <input type="text" class="form-control __first_input" name="email" placeholder="E-Posta Adresiniz">
+          <textarea class="form-control __first_input" name="message" placeholder="Mesajınız"></textarea>
+          <input type="hidden" name="_next" value="https://http://127.0.0.1:5000/contact/contact.html">
+          <button type="submit" value="Gönder" class="btn btn-danger" id="__contact_send">Gönder</button>
+      </form>
+  </div>
+</div>
+
+
+{% endblock body %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div>
+<a href="/addarticle" class="btn btn-danger">Yazı Ekle</a>
+</div>
+<br><br>
+{% if articles  %}
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">İçerik</th>
+      <th scope="col">Tarih</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for article in articles %}
+
+
+    <tr>
+      <th scope="row">{{article.id}}</th>
+      <td><a href="/articles/{{article.id}}"><strong>{{article.title}}</strong></a></td>
+      <td>{{article.content|safe}}</td>
+      <td>{{article.created_at}}</td>
+      <td><a href="/edit/{{article.id}}" class="btn btn-danger">Güncelle</a></td>
+      <td><a href="/delete/{{article.id}}" class="btn btn-danger">Sil</a></td>
+    </tr>
+    
+        
+        
+        
+{% endfor %}
+</tbody>     
+</table>
+
+
+       
+{% else %}
+<div class="alert alert-danger">Henüz Yazınız Bulunmamaktadır. </div>
+{% endif %}
+{% endblock body %}

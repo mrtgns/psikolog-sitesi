@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+{% if articles  %}
+
+
+{% for article in articles %}
+
+        <ul><li class="title"><a href="/articles/{{article.id}}">{{article.title}}</a></li> 
+          
+          
+          
+          <p class="text-muted">Yazar<a href="/about">Murat Güneş</a></p></ul>
+      
+          
+          
+        
+        
+        
+{% endfor %}
+      </div>
+      <br>
+
+
+       
+{% else %}
+{% endif %}
+
+{% endblock body %}
+
+
