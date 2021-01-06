@@ -3,12 +3,27 @@
 {% block body %}
 <h3>Yazı Oluştur</h3>
 <hr>
-{% from "includes/formhelpers.html" import render_field %}
-<form  method="POST">
 
-    {{ render_field(form.title,class="form-control") }}
-    {{ render_field(form.content,class="form-control") }}
-    <button type="submit" class="btn btn-danger">Yazı Ekle</button>
+
+<form action="/addfile" method="post" enctype=multipart/form-data>
+    <h5>Yazı Başlığı </h5>   
+    <input type = "text" class="form-control" name = "title" />
+    <hr>
+    <h5>Yazınız için resim</h5>
+    <input type = "file" name = "image" />
+    <hr>
+    <h5>Yazının içeriği</h5>
+    <textarea class="form-control" name="content" ></textarea>
+    <hr>
+    <input type="submit" class="btn btn-danger"  value="Kaydet">
 </form>
 
+{% if dosya  %}
+    <br>
+    <img width="250px" src="{{ url_for('static', filename='images/'+ dosya) }}" />
+{% endif %}
+<form  method="post">
+    
+
+</form>
 {% endblock body %}

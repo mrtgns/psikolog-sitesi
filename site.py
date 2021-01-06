@@ -1,10 +1,11 @@
 from flask import Flask,render_template,flash,redirect,url_for,session,logging,request
 from flask_sqlalchemy import SQLAlchemy
 from wtforms import Form,StringField,TextAreaField,PasswordField,validators
-from passlib.handlers.sha2_crypt import sha256_crypt
 from functools import wraps
 import psycopg2
 from datetime import datetime
+import os
+from werkzeug.utils import secure_filename
 
 #Kullanıcı Giriş Decaratoru
 def login_required(f):
@@ -17,7 +18,8 @@ def login_required(f):
     return decorated_function
 
 
-
+UPLOAD_FOLDER = 'static/images'
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app=Flask(__name__)
 app.secret_key = 'show_message' 
@@ -27,6 +29,56 @@ app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+def allowed_file(filename):
+   return '.' in filename and \
+   filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+
+# Form ile dosya yükleme işlemi
+@app.route('/addfile', methods=['POST'])
+def dosyayukle():
+
+
+    if request.method == 'POST':
+        
+        # formdan dosya gelip gelmediğini kontrol edelim
+        if 'image' not in request.files:
+            flash('Dosya seçilmedi1')
+            return redirect('addarticle')         
+
+        # kullanıcı dosya seçmemiş ve tarayıcı boş isim göndermiş mi
+        image= request.files['image']                    
+        if image.filename == '':
+            flash('Dosya seçilmedi2')
+            return redirect('addarticle')
+
+        # gelen dosyayı güvenlik önlemlerinden geçir
+        if image and allowed_file(image.filename):
+          
+            filename = secure_filename(image.filename)
+            image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            title=request.form.get('title')
+            content=request.form.get('content')
+            newArticle = Articles(title=title, content=content,image=filename)
+        
+            db.session.add(newArticle)
+            db.session.commit()
+        
+        
+       
+            flash('Yazınız Başarıyla Eklendi :)','success')
+            return redirect(url_for('dashboard',filename=filename))
+            #return redirect('addarticle')
+        else:
+
+            flash('İzin verilmeyen dosya uzantısı')
+            return redirect('addarticle')
+
+    else:
+        abort(401)
 
 
 class LoginForm(Form):
@@ -38,7 +90,7 @@ class LoginForm(Form):
 @app.route("/")
 def index():
     return render_template("index.html")
-
+    
 @app.route("/about")
 def about():
     return render_template("about.html")
@@ -54,15 +106,7 @@ def contact():
 @app.route("/article")
 def article():
     articles=Articles.query.all()
-    #conn = psycopg2.connect(DB_URL)
-    #cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-    #query = 'SELECT * FROM public.articles'
-    #result = cursor.execute(query)
-    #articles= cursor.fetchall()
-
-    #cursor.close()
-    #conn.close()
-
+     
     if articles:
         return render_template('article.html', articles=articles)
 
@@ -72,45 +116,30 @@ def article():
 @app.route("/addarticle",methods=["POST","GET"])
 @login_required
 def addarticle():
-    form = ArticleForm(request.form)
-    if request.method == 'POST' and form.validate():
-        title = form.title.data
-        content = form.content.data
-        newArticle = Articles(title=title, content=content)
-        
-        
-        db.session.add(newArticle)
-        db.session.commit()
+
+    form=request.form
+    if request.method == 'POST':
         
         return redirect(url_for('dashboard'))
-
-
-        #title = form.title.data
-        #content = form.content.data
-
-        #conn = psycopg2.connect(DB_URL)
-        #cursor = conn.cursor()
-        #query = 'insert into public.articles(title,author,content) VALUES(%s,%s,%s)'
-        #cursor.execute(query, (title, session['username'], content))
-        #conn.commit()
-        #cursor.close()
-        #conn.close()
-        #flash('Yazınız başarılı bir şekilde eklendi', 'success')
-        #return redirect(url_for('dashboard'))
+           
 
     return render_template("addarticle.html",form=form)
 
 #detay sayfası
 @app.route("/articles/<string:id>")
 def articles(id):
+    
     article=Articles.query.all()
-   
+    
+        
     if article:
-         article=Articles.query.filter_by(id=id).first()
-         return render_template("articles.html",article=article)
+
+        article=Articles.query.filter_by(id=id).first()
+      
+        return render_template("articles.html",article=article)
     else:
         return render_template("articles.html")
-
+    
 #yazı silme
 @app.route("/delete/<string:id>")
 @login_required
@@ -129,9 +158,10 @@ def delete(id):
 @app.route("/edit/<string:id>",methods=["GET","POST"])
 @login_required
 def update(id):
+
     Articles.query.all()
-    if request.method=="GET" :
-       
+    if request.method=="GET":
+        
         article=Articles.query.filter_by(id=id).first()
 
         form=ArticleForm()
@@ -145,7 +175,7 @@ def update(id):
         form=ArticleForm(request.form)
         article.title=form.title.data
         article.content=form.content.data
-        
+
         db.session.commit()
         flash("Yazınız güncenlendi...","success")
         return redirect(url_for("dashboard"))
@@ -153,19 +183,18 @@ def update(id):
 
 
 #Yazı Form sayfası
+
 class ArticleForm(Form):
     title = StringField('Yazı Başlığı', [
         validators.DataRequired(message='required'),
         validators.Length(min=5, max=300)
     ])
-    content = TextAreaField('Yazı içeriği', [
-        validators.InputRequired(message='required'),
-        validators.Length(min=10)
-    ])
-
-
+    content = TextAreaField('Yazı içeriği', [validators.InputRequired(message='required'),validators.Length(min=10)])
+    
+    
 @app.route("/dashboard")
 @login_required
+
 def dashboard():
     
     articles=Articles.query.all() 
@@ -199,27 +228,7 @@ def login():
             flash('Kullanıcı adı veya parola yanlış', 'danger')
             return redirect(url_for('login'))
 
-        #conn = psycopg2.connect(DB_URL)
-        #cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-        #query = 'SELECT * FROM public.user WHERE username = %s'
-        #result = cursor.execute(query, (username,))
-        #record = cursor.fetchone()
-        #cursor.close()
-        #conn.close()
-        #if(record):
-            #realPassword = record['password']
-            #if realPassword==password:
-                #session['logged_in'] = True
-                #session['username'] = record['username']
-                #session['user_id'] = record['id']
-                #flash('basari ile giris yaptiniz', 'success')
-                #return redirect(url_for('article'))
-            #else:
-                #flash('sifre yanlis', 'danger')
-                #return redirect(url_for('login'))
-        #else:
-            #flash('kullanici adi yanlis', 'danger')
-            #return redirect(url_for('login'))
+        
 
     else:
         return render_template('login.html', form=form)
@@ -235,14 +244,17 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
-    #created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.now())
+    
 db.create_all()
 
 class Articles(db.Model):
    id = db.Column(db.Integer, primary_key=True)
    title = db.Column(db.String(100), nullable=False) # (nullable=False) == (NOT NULL)
    content= db.Column(db.String() , nullable=False)
+   image=db.Column(db.String(), nullable=False)
    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.now())
+   
+
 db.create_all()
 
 if __name__=="__main__":

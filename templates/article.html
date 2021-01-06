@@ -2,25 +2,30 @@
 
 
 {% block body %}
-
+<link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename = 'images') }}">
 {% if articles  %}
 
 
 {% for article in articles %}
 
-        <ul><li class="title"><a href="/articles/{{article.id}}">{{article.title}}</a></li> 
+         
+          <div class="col-md-6" style="float: right;">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250"   style="background-color: rgba(0,0,0,.07);">
+              <div class="card-body d-flex flex-column align-items-start" style="height: 0px">
+              
+                <h3 class="mb-0">
+                  <a class="text-dark" href="/articles/{{article.id}}">{{article.title}}</a>
+                </h3>
+                <div class="mb-1 text-muted">Yazar:<a href="/about">Murat Güneş</a></div>
+                <p class="card-text mb-auto">{{article.content[:100]|safe}}[....]</p>
+                <a href="/articles/{{article.id}}">Devamını Oku</a>
+              </div>
+              <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="http://127.0.0.1:5000/static/images/{{article.image}}" data-holder-rendered="true">
+            </div>
+          </div>
           
-          
-          
-          <p class="text-muted">Yazar<a href="/about">Murat Güneş</a></p></ul>
-      
-          
-          
-        
-        
-        
 {% endfor %}
-      </div>
+     
       <br>
 
 

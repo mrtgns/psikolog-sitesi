@@ -44,12 +44,7 @@ i{
     height: 200px;
     margin-top: 25px; 
 }
-.card{
-    width: fit-content;
- float: right; margin-top: 25px;
-background-color: rgba(0,0,0,.07);
 
-}
 
 .about img{
     height: 265px;
