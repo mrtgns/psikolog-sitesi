@@ -102,6 +102,26 @@ def services():
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
+@app.route('/sevgili-terapist')
+def terapist():
+    return render_template("terapist.html")
+
+@app.route("/bireysel-danışmanlık")
+def bireysel():
+    return render_template("bireysel.html")
+
+@app.route('/aile-ve-çift-terapisi')
+def aile():
+  return render_template("aile.html")
+
+@app.route('/emdr')
+def emdr():
+   return render_template("emdr.html")
+
+@app.route('/çocuk-ergen-aile')
+def cocuk():
+   return render_template("cocuk.html")
+
 
 @app.route("/article")
 def article():

@@ -1,12 +1,14 @@
 {% extends "layout.html" %}
 
 {% block body %}
+
+<div> 
 <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename = 'images') }}">
 {% if article %}
 <h4 style="text-align: center;">{{article.title}}</h4>
 <hr> 
-<div style="text-align:center;">
-<img src="http://127.0.0.1:5000/static/images/{{article.image}}" style="width: 800px;height: 500px;"  >
+<div class="articles" style="text-align:center;">
+<img src="http://127.0.0.1:5000/static/images/{{article.image}}" style="width: 80%;"  >
 </div>
 <hr>
 {{article.content|safe}}
@@ -14,6 +16,8 @@
 {{article.created_at}}
 {% else %}
 <div class="alert alert-warning">Böyle bir makale bulunmamaktadır.</div>
+</div>
+
 {% endif %}
 
 {% endblock body %}

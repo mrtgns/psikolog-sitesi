@@ -1,13 +1,15 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<div>
-<a href="/addarticle" class="btn btn-danger">Yazı Ekle</a>
+<div style="text-align: center;">
+<br>
+<br>
+<a href="/addarticle" style="width: 230px;" class="btn btn-danger">Yazı Ekle</a>
 </div>
 <br><br>
 {% if articles  %}
 <div class="container" style="display: inline-block;">
-<table class="table table-hover">
+<table class="table table-hover" style="width: 100%">
   <thead>
     <tr>
       <th scope="col">id</th>
@@ -44,5 +46,6 @@
        
 {% else %}
 <div class="alert alert-danger">Henüz Yazınız Bulunmamaktadır. </div>
+
 {% endif %}
 {% endblock body %}

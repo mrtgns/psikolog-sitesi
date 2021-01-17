@@ -7,13 +7,13 @@
 
 <form action="/addfile" method="post" enctype=multipart/form-data>
     <h5>Yazı Başlığı </h5>   
-    <input type = "text" class="form-control" name = "title" />
+    <input type = "text" class="form-control" name = "title" required="Boş bırakılamaz" />
     <hr>
     <h5>Yazınız için resim</h5>
     <input type = "file" name = "image" />
     <hr>
     <h5>Yazının içeriği</h5>
-    <textarea class="form-control" name="content" ></textarea>
+    <textarea class="form-control" name="content" required="Boş bırakılamaz" rows="10" cols="40" ></textarea>
     <hr>
     <input type="submit" class="btn btn-danger"  value="Kaydet">
 </form>

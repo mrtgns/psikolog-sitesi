@@ -1,23 +1,25 @@
 
-<nav class="navbar navbar-expand-md" style="background-color:#cee0da; font-weight: bold; font-size: 17px;" >
-  <div class="collapse navbar-collapse" id="navbarCollapse" style="color: black;"> 
-  <a class="navbar-brand"  style="color: black; "  href="/">Anasayfa</a>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="/">Anasayfa</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  
-    <ul  class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" style="color: black;"  href="/about">Hakkımda</a>
+        <a class="nav-link" href="/about">Hakkımda</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link"  style="color: black;"  href="/services">Hizmetler</a>
+        <a class="nav-link" href="/services">Hizmetler</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link"  style="color: black;"  href="/article">Yazılar</a>
+        <a class="nav-link" href="/article">Blog</a>
       </li>
-       <li class="nav-item active">
-        <a class="nav-link"  style="color: black;"  href="/contact">İletişim</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="/contact">İletişim</a>
+      </li>
+      <li class="nav-item active">
+        <a style="color:#07ef07;" class="nav-link" href="/sevgili-terapist">Sevgili-Terapist</a>
       </li>
       {% if session['logged_in'] %}
       <li class="nav-item active">
@@ -30,18 +32,21 @@
       {% endif %}
       
     </ul>
-    
     <ul class="navbar-nav ml-auto" style="font-size: 20px;">
-     <li class="nav-item active">
-      <a style="color: black;" href="tel:05543354832"><i class="fas fa-phone-volume">05543354832</i></a>
-      <i class="far fa-envelope">mgunes@gmail.com</i>
-       <a href="https://www.facebook.com" target="_blanlk"><i class="fab fa-facebook"></i></a>
-       <a href="https://www.instagram.com" target="_blanlk"><i style="color: rgb(187, 36, 36);" class="fab fa-instagram"></i></a>
-       <a href="https://www.twitter.com"target="_blanlk"><i class="fab fa-twitter"></i></a>
-
-    </li>
-
-  </ul>
+      <li class="nav-item active">
+      <a href="https://www.instagram.com/psikegunlugum/" target="_blanlk"><i style="color: rgb(187, 36, 36);" class="fab fa-instagram"></i></a>
+      <li> <a style="color: rgb(255, 255, 255);" href="tel:05055014618"><i class="fas fa-phone-volume">05055014618</i></a></li> 
+       <i  style="color: rgb(255, 255, 255);" class="far fa-envelope">psikologtastan@gmail.com</i>
+        
+        
+        
+ 
+     </li>
+ 
+   </ul>
   </div>
-  
 </nav>
+
+
+
+

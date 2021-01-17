@@ -1,69 +1,242 @@
-.personel-info {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: auto;
+
+@media screen and (min-width: 768px) {
+    .navbar{
     
-}
-.personel-info img{
-    margin-right: 20px;
-}
+        font-weight: bold;
+        font-family: cursive;
+    }
+    .navbar li:hover a{
+        background-color:teal;
+    }
 
-.personel-info p{
-    margin-bottom: 5rem;
+
+
+
+    .personel-info {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 40px;
+        height: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .personel-info img{
+        margin-right: 20px;
+        max-width: 40%;
+    }
     
-}
+    .personel-info p{
+        margin-bottom: 5rem;
+        font-family: cursive;
+        font-size: large;
+        color: #495a6b
+    }
+    
+    
+    .c-hero{
+        background-color: #6cddc9;
+        display: flex;
+        margin: -30px;
+        height: 198px;
+    }
+    
+    
+    
+    .c-hero h1{
+        text-align: center;
+        font-size: xx-large; 
+        font-family: cursive;
+        color: rgb(12, 11, 11);
+        padding-top: 20px;
+    }
+    .c-hero h6{
+        margin-bottom:auto;
+        text-align: center;
+        margin-bottom: 7px;
+        margin-top: -7px;
+        margin-right: 25px;
+    }
+    
+    .c-hero a{
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .c-hero  strong{
+        font-weight: bolder;
+        color: black;
+        
+        border-radius: 30px;
+       
+        margin-top: -15px;
+        margin-right: 31px;
+    }
+    #table {
+        
+        margin: 20px 0px;
+        background-color: #d6dcdc;
+    }
+
+    #table h3{
+        text-align: center;
+    }
+    #table .table{
+        display: flex;
+        justify-content: space-around;
+    }
+    #contact-table{
+        background-color:rgb(214 220 220);
+       
+        max-width:100%;
+        
+        
+    }
+    
+    
+    
+    
+    i{
+        margin: 20px;
+    }
+    #card-contact{
+        background-color:rgb(214 220 220);
+        display: flex;
+        margin-top: 36px;
+        max-width: 100%;
+    
+    }
+    
+    .therapy{
+        max-width: 100%;
+    }
+    .therapy img{
+        height: 100%;
+        float: left;
+        width: 25%;
+        
+    }
+    .terapi{
+        background-color:#d6dcdc;
+        height: 200px;
+        margin-top: 25px; 
+    }
+    
+    #indx{
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #d6dcdc;;
+       
+        
+    }
+    
+    .about img{
+        width: 50%;
+        float: left;
+        padding-right: 20px;
+    }
+    
+    .contact-icon{
+        font-size: 30px;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+        
+    
+    #blog{
+        max-width: 40%; 
+        margin-bottom: 5%;
+        float: left;
+        margin-right: 10%;
+        min-height: 480px;
+    }    
+    #blog img{
+        height: 225px; 
+        width: 100%; 
+        display: block;
+
+    }
+
+    #blog .title{
+        padding-left: 20px;
+    }
+    #blog .content{
+        padding: 5px 10px;
+    }   
+    footer{
+        font-size: 32px; 
+        display: flex;
+        justify-content: space-around;
+    }
 
 
-.colour{
-    background-color: rgb(238, 231, 223);
-}
+}   
 
-.table{
-    margin-top: 20px;
-    background-color:rgba(0,0,0,.07);
-    float: left;
-    width: 23%;
-}
+@media screen and (max-width: 767px){
 
-.table thead,tbody{
    
-    border-collapse: collapse;
-}
+    .c-hero{
+        margin-top: -11%;
+        width: 100%;
+    }
 
-i{
-    margin: 20px;
-}
-.therapy img{
-    height: 200px;
-    float: left;
-    width: 353px
-}
-.terapi{
-    background-color:#dcdbe3;
-    height: 200px;
-    margin-top: 25px; 
-}
+    .c-hero img{
+       
+        width: 100%;
+        height: 250px;
+    }
 
+    .c-hero h6{
+        margin-bottom: 1.5rem;
+    }
 
-.about img{
-    height: 265px;
-    float: left;
-    padding-right: 20px;
-}
+    .c-hero  strong{
+        font-weight: bolder;
+        color: black;
+        
+        border-radius: 30px;
+       
+        margin-bottom: 15px;
+        
+    }
 
-.fa{
-    color: blue;
-    font-size: xxx-large;
-}
-.icon{
-    color: blue;
-}
-.elementor-container{
-    display: flex;
-  
-}
-.elementor-icon-box-icon {
-    margin-left: 160px;
+    #blog{
+        margin: 5% 0%;
+    }
+    .contact-icon{
+        display: flex;
+        justify-content: space-around;
+    }
+    #card-contact{
+        background-color:rgb(214 220 220);
+        display: flex;
+    }
+    #contact-table{
+        background-color:rgb(214 220 220);
+       
+        
+    }
+    .about img{
+        width: 100%;
+    }
+
     
+    .therapy img{
+        
+        
+        max-width: 100%;
+        
+    }
+
+    #table .table{
+        display: flex;
+        margin-top: 20px;
+        background-color: #d6dcdc;
+    }
+    
+
 }
+
+
+
