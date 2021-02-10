@@ -3,7 +3,7 @@ body {
   background-color: #f2f4f7;
 }
 .c-hero {
-  background-color: #6cddc9;
+  background-color: #0cf4e7;
   margin-bottom: 25px;
 }
 .c-hero .c-hero-content {
@@ -33,6 +33,10 @@ body {
   font-size: 26px;
 }
 
+.alert-info{
+  background-color: #d6dcdc;
+}
+
 @media screen and (min-width: 768px) {
   .navbar li:hover a {
     background-color: teal;
@@ -51,12 +55,19 @@ body {
   .personel-info p {
     font-family: cursive;
     font-size: large;
-    color: #495a6b;
+    color: #101010;
+    font-style: italic;
+    line-height: 2.5;
   }
 
   .c-hero {
-    background-color: #6cddc9;
+    background-color: #0cf4e7;
     display: flex;
+  }
+
+  .c-hero img{
+    height: 210px;
+    width: 100%;
   }
 
   .c-hero .c-hero-content h1 {
@@ -159,6 +170,14 @@ body {
     font-size: 32px;
     display: flex;
     justify-content: space-around;
+    margin-bottom: 2%;
+  }
+  .card-img-top{
+    height: 325px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 80%;
   }
 }
 
@@ -167,6 +186,10 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
+
+  .c-hero .c-hero-content{
+    background-color: white;
   }
 
   .c-hero .c-hero-content strong {
@@ -179,12 +202,21 @@ body {
     font-size: 24px;
   }
 
+  #indx {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #d6dcdc;
+    margin-bottom: 3%;
+  }
+
   #blog {
     margin: 5% 0%;
   }
   .contact-icon {
     display: flex;
     justify-content: space-around;
+    font-size: 1.25rem;
   }
   #card-contact {
     background-color: rgb(214 220 220);
@@ -205,5 +237,16 @@ body {
     display: flex;
     margin-top: 20px;
     background-color: #d6dcdc;
+  }
+  .contact-isim{
+    font-size: 1.25rem;
+  }
+
+  .card-img-top{
+    height: 175px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 80%;
   }
 }

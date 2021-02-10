@@ -1,7 +1,7 @@
 {% extends "layout.html" %} {% block body %}
 
 <div class="c-hero">
-  <div><img src="{{ url_for('static', filename = 'images/logo.jpg') }}" /></div>
+  <div><img src="{{ url_for('static', filename = 'images/logo.jpg') }}" class="img-fluid" /></div>
 
   <div class="c-hero-content">
     <h1>Online Psikolojik Destek ve Danışma Hattı</h1>
@@ -18,7 +18,7 @@
 </div>
 <div class="personel-info">
   <img
-    src="{{ url_for('static', filename = 'images/elif1.jpg') }}"
+    src="{{ url_for('static', filename = 'images/elifa.jpg') }}"
     class="img-fluid"
   />
   <p class="text-center container">
@@ -58,6 +58,26 @@
       >
     </div>
   </div>
+
+  <div class="terapi">
+    <img src="{{ url_for('static', filename = 'images/bireysel.jpg') }}" />
+    <div class="terapi-content">
+      <h4 style="text-align: center">BİREYSEL DANIŞMANLIK</h4>
+      <span
+        ><p>
+          Bireysel terapi, terapist ile danışan arasında gizlilik ilkesi doğrultusunda
+          gerçekleşen, danışanın hayatında karşılaştığı zorlukların üstesinden
+          gelmesinde kendi kendine yardım etme becerilerini geliştiren, danışanın
+          öğrenme, değişme ve gelişmesinde terapistin danışana rehberlik etme
+          sürecidir.
+        </p>
+      </span>
+      <a href="/services" class="btn btn-warning" style="text-align: center"
+        >DAHA FAZLA</a
+      >
+    </div>
+  </div>
+
   <div class="terapi">
     <img src="{{ url_for('static', filename = 'images/emdr.jpg') }}" />
     <div class="terapi-content">
@@ -75,40 +95,29 @@
       >
     </div>
   </div>
+
+
+
+<div class="terapi">
+  <img src="{{ url_for('static', filename = 'images/online-terapi.jpg') }}" />
+  <div class="terapi-content">
+    <h4 style="text-align: center">ONLİNE TERAPİ</h4>
+    <span
+      ><p>
+        Online terapi hizmeti, bilimselliği kanıtlanmış bir servistir. Evinizde,
+        ofisinizde veya internet başında herhangi bir yerde uzman kişiler
+        aracılığı ile yapılan danışma şeklidir. İnternet teknolojilerinde hızlı
+        gelişmeler psikolojik yardımın geleneksel ortamların dışında
+        verilmesini de beraberinde getirmiştir.
+      </p>
+    </span>
+    <a href="/services" class="btn btn-warning" style="text-align: center"
+      >DAHA FAZLA</a
+    >
+  </div>
+</div>
 </div>
 
-<style>
-  .information {
-    background-color: #6cddc9;
-    width: 33%;
-    height: 60px;
-    margin: 30px 0px;
-    border-radius: 30px;
-    text-align: center;
-    padding-top: 14px;
-    display: inline-block;
-  }
-  .information h3 {
-    font-size: 1.25rem;
-  }
-</style>
-<!-- <div class="box">
-     
-     <div class="information"><h3>BİREYSEL DANIŞMANLIK</h3></div>
-     <div class="information"><h3>AİLE ve ÇİFT TERAPİSİ </h3></div>
-     <div class="information"><h3>ÇOÇUK-ERGEN ve AİLE DANIŞMANLIĞI </h3></div>
-     <div class="information"><h3>EMDR ve TRAVMA </h3></div>
-     <div class="information"><h3>YAS TERAPİSİ  </h3></div>
-     <div class="information"><h3>DEPRESYON </h3> </div>
-     <div class="information"><h3>ÖFKE ve STRES YÖNETİMİ </h3></div>
-     <div class="information"><h3>EĞİTİM DANIŞMANLIĞI </h3></div>
-     <div class="information"><h3>KAYGI BOZUKLUKLARI </h3></div>
-     <div class="information"><h3>PANİK ATAK </h3></div>
-     <div class="information"><h3> SINAV KAYGISI</h3></div>
-     <div class="information"><h3> FOBİLER</h3></div>
-
-     
-</div>   -->
 
 <div class="alert alert-info" role="alert">
   <h4 class="alert-heading">Çalışma Saatleri</h4>
@@ -167,16 +176,13 @@
 </div>
 
 <footer>
-  <div class="home-contact">
-    <a href="https://www.instagram.com/psikegunlugum/" target="_blanlk"
-      ><i style="color: rgb(187, 36, 36)" class="fab fa-instagram"></i
-    ></a>
-
-    <a style="color: black" href="tel:05543354832"
-      ><i class="fas fa-phone-volume">05055014618</i></a
-    >
-    <i class="far fa-envelope">psikologtastan@gmail.com</i>
-  </div>
+  <div class="contact-icon" >
+ 
+    <a href="https://www.instagram.com/psikegunlugum/" target="_blanlk"><i style="color: rgb(187, 36, 36);" class="fab fa-instagram"></i></a>
+    
+    <a style="color: black;" href="tel:05055014618"><i class="fas fa-phone-volume">05055014618</i></a>
+    <a style="color: black;" href="/contact#card-contact"><i class="far fa-envelope">psikologtastan@gmail.com</i></a>
+     </div>
 </footer>
 
 {% endblock body %}

@@ -33,8 +33,8 @@ DB_USER = os.getenv('PSQL_USER')
 DB_PASS = os.getenv('PSQL_PASS')
 
 
-DB_URL = "postgresql://{}:5432{}@{}/{}".format(DB_USER, DB_PASS, DB_HOST, DB_NAME)
-# DB_URL = 'postgresql://postgres:murat123@localhost/et_db'
+#DB_URL = "postgresql://{}:5432{}@{}/{}".format(DB_USER, DB_PASS, DB_HOST, DB_NAME)
+DB_URL = 'postgresql://postgres:murat123@localhost/et_db'
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -136,7 +136,9 @@ def emdr():
 @app.route('/çocuk-ergen-aile')
 def cocuk():
     return render_template("cocuk.html")
-
+@app.route('/online-terapi')
+def online():
+    return render_template("online.html")
 
 @app.route("/article")
 def article():

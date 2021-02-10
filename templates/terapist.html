@@ -8,14 +8,10 @@ max-width: 80%;
 margin-left: auto;
 font-size: large;
 font-family: cursive;
+font-style: italic;
 "> 
-<div>
-    <img  style="height: 400px;
-        margin-left: auto;
-        margin-right: auto;
-        display: flex;
-        width: 80%;
-    " class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"  src="http://127.0.0.1:5000/static/images/sevgili-terapist.jpg" data-holder-rendered="true">
+<div style="margin-bottom: 2%;">
+    <img  class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"  src="http://127.0.0.1:5000/static/images/sevgili-terapist.jpg" data-holder-rendered="true">
 </div>
 
 <div>
@@ -37,23 +33,18 @@ font-family: cursive;
 </div>
 </div>
 
-<div  id="card-terapist" class="card" style="max-width: 80%;
-margin-left: auto;
-margin-right: auto;
-margin-top: 45px;
-background-color: #c2c3c387;
-" >
-    <!-- <div class="card-body">
-        <label  class="__third_card_title __tct_third"><h4>Hikayeni Yaz </h4></label>
-        <form action="https://formspree.io/f/xoqpkzea" method="post" id="contact_form">
-            <input type="text" class="form-control __first_input" name="name_surname" placeholder="Adınız, Soyadınız" required="Boş bırakılamaz">
-            <input type="text" class="form-control" name="phone_number" placeholder="Telefon numaranız" required="Boş bırakılamaz">
-            <input type="text" class="form-control __first_input" name="email" placeholder="E-Posta Adresiniz" required="Boş bırakılamaz">
-            <textarea class="form-control __first_input" name="message" placeholder="Mesajınız" required="Boş bırakılamaz"></textarea>
-            <input type="hidden" name="_next" value="https://http://127.0.0.1:5000/contact">
-            <button type="submit" value="Gönder" class="btn btn-danger" id="__contact_send">Gönder</button>
-        </form>
-    </div>
-  </div> -->
-  <div style="width: 100%;" class="btn bg-warning"> <a href="mailto:psikologtastan@gmail.com" target="_blank" class="elementor-button-link elementor-button elementor-size-sm" role="button"> <span class="elementor-button-content-wrapper"> <span class="elementor-button-text">Hikayeni Yaz</span> </span> </a></div>
+  <div style="width: 40%; display: flex;
+    justify-content: center; font-size: 20px;
+    margin: 15px auto;" class="btn bg-warning"> <a href="mailto:psikologtastan@gmail.com" target="_blank" class="elementor-button-link elementor-button elementor-size-sm" role="button"> <span class="elementor-button-content-wrapper"> <span style="color: black;" class="elementor-button-text"><b>HİKAYENİ YAZ</b> </span> </span> </a></div>
+
+<footer>
+  <div class="contact-icon" >
+ 
+    <a href="https://www.instagram.com/psikegunlugum/" target="_blanlk"><i style="color: rgb(187, 36, 36);" class="fab fa-instagram"></i></a>
+    
+    <a style="color: black;" href="tel:05055014618"><i class="fas fa-phone-volume">05055014618</i></a>
+    <a style="color: black;" href="/contact#card-contact"><i class="far fa-envelope">psikologtastan@gmail.com</i></a>
+     </div>
+</footer>
+
 {% endblock body %}
