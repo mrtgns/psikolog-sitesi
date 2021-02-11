@@ -202,6 +202,10 @@ body {
     font-size: 24px;
   }
 
+  .personel-info img{
+    margin-bottom: 15px;
+  }
+
   #indx {
     max-width: 100%;
     margin-left: auto;
