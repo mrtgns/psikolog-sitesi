@@ -217,6 +217,9 @@ body {
   #blog {
     margin: 5% 0%;
   }
+  #blog h3{
+    text-align: center;
+  }
   .contact-icon {
     display: flex;
     justify-content: space-around;

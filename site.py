@@ -132,6 +132,11 @@ def aile():
 def emdr():
     return render_template("emdr.html")
 
+@app.route('/atölye')
+def atolye():
+    return render_template("atolye.html")
+
+
 
 @app.route('/çocuk-ergen-aile')
 def cocuk():
