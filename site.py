@@ -191,13 +191,15 @@ def articles(id):
 @login_required
 def delete(id):
     article = Articles.query.all()
-
+    
     if article:
 
         article = Articles.query.filter_by(id=id).first()
         db.session.delete(article)
         db.session.commit()
+        
         return redirect(url_for("dashboard"))
+
 
     return render_template("dashboard.html", article=article)
 # yazı güncelle
