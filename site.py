@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from functools import wraps
 import psycopg2
+from flask_mysqldb import MySQL
+from passlib.handlers.sha2_crypt import sha256_crypt
 from datetime import datetime
 import os
 from werkzeug.utils import secure_filename
@@ -34,7 +36,8 @@ DB_PASS = os.getenv('PSQL_PASS')
 
 
 #DB_URL = "postgresql://{}:5432{}@{}/{}".format(DB_USER, DB_PASS, DB_HOST, DB_NAME)
-DB_URL = 'postgresql://postgres:murat123@localhost/et_db'
+#DB_URL = 'postgresql://postgres:murat123@localhost/et_db'
+DB_URL = 'mysql://root:''@localhost/psikolog'
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -295,8 +298,8 @@ class Articles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     # (nullable=False) == (NOT NULL)
     title = db.Column(db.String(100), nullable=False)
-    content = db.Column(db.String(), nullable=False)
-    image = db.Column(db.String(), nullable=False)
+    content = db.Column(db.Text(), nullable=False)
+    image = db.Column(db.String(100), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),
                            nullable=False, default=datetime.now())
 
